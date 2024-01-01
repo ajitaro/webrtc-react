@@ -172,6 +172,10 @@ function App() {
   useEffect(() => {
     hangupButton.current.disabled = true
     muteAudButton.current.disabled = true
+
+    socket.on('connect_error', (error) => {
+      console.error('WebSocket connection error:', error);
+    })
   }, [])
 
   const startB = async () => {
